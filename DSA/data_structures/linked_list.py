@@ -19,7 +19,7 @@ class LinkedList:
     Lookup: O(n)
 
     Uses:
-    * Implement stacks of queues
+    * Implement stacks or queues
     * Adjacency list representation of graphs
     * Chained hashmap chain
     * No need to resize when growing/shrinking (more memory efficient)
