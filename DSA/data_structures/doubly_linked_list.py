@@ -28,7 +28,6 @@ class DoublyLinkedList:
         * Implement stack or queue.
         * No need to resize when adding or removing.
     """
-
     def __init__(self) -> None:
         self._head = None
         self._tail = None
