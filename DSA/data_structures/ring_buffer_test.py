@@ -32,6 +32,6 @@ class RingBufferTest(unittest.TestCase):
         self.assertEquals(3, ring_buffer.dequeue())
         self.assertEquals(4, ring_buffer.dequeue())
 
-    def testInitWithInvalidCapacityRaisesValueError(self):
+    def test_init_with_invalid_capacity_raises_value_error(self):
         with self.assertRaises(ValueError):
             RingBuffer(0)

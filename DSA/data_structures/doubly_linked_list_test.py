@@ -5,7 +5,7 @@ from data_structures.doubly_linked_list import DoublyLinkedList
 
 class DoublyLinkedListTest(unittest.TestCase):
 
-    def testAddToTail(self):
+    def test_add_to_tail(self):
         deque = DoublyLinkedList()
 
         deque.add_to_tail(1)
@@ -17,7 +17,7 @@ class DoublyLinkedListTest(unittest.TestCase):
         self.assertEqual(2, deque._head.next.val)
         self.assertEqual(3, deque._tail.val)
 
-    def testAddToHead(self):
+    def test_add_to_head(self):
         deque = DoublyLinkedList()
 
         deque.add_to_head(1)
@@ -29,7 +29,7 @@ class DoublyLinkedListTest(unittest.TestCase):
         self.assertEqual(2, deque._head.next.val)
         self.assertEqual(1, deque._tail.val)
 
-    def testPopHead(self):
+    def test_pop_head(self):
         deque = DoublyLinkedList()
 
         deque.add_to_tail(1)
@@ -43,7 +43,7 @@ class DoublyLinkedListTest(unittest.TestCase):
         self.assertEqual(3, deque.pop_head())
         self.assertEqual(0, deque.size)
 
-    def testPopTail(self):
+    def test_pop_tail(self):
         deque = DoublyLinkedList()
 
         deque.add_to_tail(1)
@@ -57,7 +57,7 @@ class DoublyLinkedListTest(unittest.TestCase):
         self.assertEqual(1, deque.pop_tail())
         self.assertEqual(0, deque.size)
 
-    def testRemoveVal(self):
+    def test_remove_val(self):
         deque = DoublyLinkedList()
 
         deque.add_to_tail(1)
@@ -85,7 +85,7 @@ class DoublyLinkedListTest(unittest.TestCase):
         with self.assertRaises(KeyError):
             deque.remove_val(10)
 
-    def testReverse(self):
+    def test_reverse(self):
         deque = DoublyLinkedList()
 
         deque.add_to_tail(1)

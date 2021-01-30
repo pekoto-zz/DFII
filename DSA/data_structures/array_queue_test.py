@@ -5,7 +5,7 @@ from data_structures.array_queue import ArrayQueue
 
 class ArrayQueueTest(unittest.TestCase):
 
-    def testEnqueue(self):
+    def test_enqueue(self):
         array_queue = ArrayQueue()
         array_queue.enqueue(1)
         array_queue.enqueue(2)
@@ -13,7 +13,7 @@ class ArrayQueueTest(unittest.TestCase):
 
         self.assertEquals(3, array_queue.size)
 
-    def testDequeue(self):
+    def test_dequeue(self):
         array_queue = ArrayQueue()
         array_queue.enqueue(1)
         array_queue.enqueue(2)
@@ -31,7 +31,7 @@ class ArrayQueueTest(unittest.TestCase):
         self.assertEquals(4, array_queue.dequeue())
         self.assertEquals(1, array_queue.size)
 
-    def testGrow(self):
+    def test_grow(self):
         array_queue = ArrayQueue(2)
         array_queue.enqueue(1)
         array_queue.enqueue(2)
@@ -49,7 +49,7 @@ class ArrayQueueTest(unittest.TestCase):
 
         self.assertEquals(0, array_queue.size)
 
-    def testInitWithInvalidCapacityRaisesValueError(self):
+    def test_init_with_invalid_capacity_raises_value_error(self):
         with self.assertRaises(ValueError):
             ArrayQueue(0)
 

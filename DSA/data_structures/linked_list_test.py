@@ -5,7 +5,7 @@ from data_structures.linked_list import LinkedList
 
 class LinkedListTest(unittest.TestCase):
 
-    def testAddRecursive(self):
+    def test_add_recursive(self):
         linked_list = LinkedList()
         linked_list.add_recursive(1)
         linked_list.add_recursive(2)
@@ -16,7 +16,7 @@ class LinkedListTest(unittest.TestCase):
         self.assertEqual(2, linked_list._head.next.val)
         self.assertEqual(3, linked_list._head.next.next.val)
 
-    def testAddIterative(self):
+    def test_add_iterative(self):
         linked_list = LinkedList()
         linked_list.add_iterative(1)
         linked_list.add_iterative(2)
@@ -27,13 +27,13 @@ class LinkedListTest(unittest.TestCase):
         self.assertEqual(2, linked_list._head.next.val)
         self.assertEqual(3, linked_list._head.next.next.val)
 
-    def testIsEmpty(self):
+    def test_is_empty(self):
         linked_list = LinkedList()
         self.assertTrue(linked_list.is_empty())
         linked_list.add_recursive(1)
         self.assertFalse(linked_list.is_empty())
 
-    def testRemoveRecursive(self):
+    def test_remove_recursive(self):
         linked_list = LinkedList()
         linked_list.add_iterative(1)
         linked_list.add_iterative(2)
@@ -50,7 +50,7 @@ class LinkedListTest(unittest.TestCase):
         linked_list.remove_recursive(2)
         self.assertTrue(linked_list.is_empty())
 
-    def testRemoveIterative(self):
+    def test_remove_iterative(self):
         linked_list = LinkedList()
         linked_list.add_iterative(1)
         linked_list.add_iterative(2)
@@ -83,7 +83,7 @@ class LinkedListTest(unittest.TestCase):
         with self.assertRaises(KeyError):
             linked_list.remove_iterative(5)
 
-    def testIteration(self):
+    def test_iteration(self):
         linked_list = LinkedList()
         linked_list.add_iterative(1)
         linked_list.add_iterative(2)
@@ -96,7 +96,7 @@ class LinkedListTest(unittest.TestCase):
 
         self.assertTrue(True)
 
-    def testReverse(self):
+    def test_reverse(self):
         linked_list = LinkedList()
         linked_list.add_iterative(1)
         linked_list.add_iterative(2)
