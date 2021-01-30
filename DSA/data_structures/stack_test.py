@@ -32,6 +32,16 @@ class StackTest(unittest.TestCase):
 
         self.assertEquals(3, stack.peek())
 
+    def test_pop_empty_stack_raises_exception(self):
+        stack = Stack()
+        with self.assertRaises(Exception):
+            stack.pop()
+
+    def test_peek_empty_stack_raises_exception(self):
+        stack = Stack()
+        with self.assertRaises(Exception):
+            stack.peek()
+
 
 if __name__ == '__main__':
     unittest.main()
