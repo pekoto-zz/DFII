@@ -27,7 +27,6 @@ class HashMap:
     * Get(key): O(1) avg, O(n) worst case
     * Remove(key): O(1) avg, O(n) worst case
     * Contains(key): O(1) avg, O(n) worst case
-
     """
     def __init__(self, size: int = _ARRAY_SIZE):
         """Initialize the array with a default size."""
