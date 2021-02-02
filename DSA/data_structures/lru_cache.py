@@ -38,10 +38,7 @@ class LruCache:
     Time:
     * Get: O(1) average, O(n) worst case
     * Put: O(1) average, O(n) worst case
-
-
     """
-
     def __init__(self, capacity: int = _DEFAULT_CAPACITY) -> None:
         """Initializes the LRU Cache."""
         self.size = 0
