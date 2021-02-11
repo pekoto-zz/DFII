@@ -21,6 +21,9 @@ class Node:
         self.left = None
         self.right = None
 
+    def __str__(self):
+        return f"[{self.key}: {self.val}]"
+
 
 class BinarySearchTree:
     """A binary search tree (BST) implementation.
@@ -101,7 +104,7 @@ class BinarySearchTree:
             node.val = val
 
         # Set the count to be count in subtrees + 1
-        node.count = self._size(node.left) + 1 + self._size(node.right)
+        node.count = _size(node.left) + 1 + _size(node.right)
 
         return node
 
@@ -184,19 +187,27 @@ class BinarySearchTree:
         elif key > node.key:
             node.right = self._remove(node.right, key)
         else:
-            # Node has left and right subtrees.
-            node_to_delete = node
+            if not node.right:
+                # Node has no right node -- set to left subtree
+                return node.left
+            elif not node.left:
+                # Node has no left node -- set to right subtree
+                return node.right
+            else:
+                # Node has left and right subtrees.
+                node_to_delete = node
 
-            # Replace the node with the smallest node in the right subtree
-            node = _min(node_to_delete.right)
+                # Replace the node with the smallest node in the right subtree
+                node = _min(node_to_delete.right)
 
-            # Set right to be the right subtree with the smallest node removed
-            node.right = self._delete_min(node_to_delete.right)
+                # Set right to be the right subtree with the smallest node removed
+                node.right = self._delete_min(node_to_delete.right)
 
-            # Set left to the left subtree
-            node.left = node_to_delete.left
+                # Set left to the left subtree
+                node.left = node_to_delete.left
 
         node.count = _size(node.left) + 1 + _size(node.right)
+        return node
 
     def _delete_min(self, node: Node) -> Node:
         """Deletes the minimum node in a subtree.
@@ -223,12 +234,12 @@ class BinarySearchTree:
             return node.right
 
         node.left = self._delete_min(node.left)
-        node.count = self._size(node.left) + 1 + self._size(node.right)
+        node.count = _size(node.left) + 1 + _size(node.right)
         return node
 
     def size(self) -> int:
         """Returns the size of the tree."""
-        return self._size(self._root)
+        return _size(self._root)
 
     def is_valid(self) -> bool:
         """Checks that the BST is valid.
@@ -240,7 +251,7 @@ class BinarySearchTree:
 
         :return: True if the BST is valid.
         """
-        return self._is_valid(self._root, sys.minsize, sys.maxsize)
+        return self._is_valid(self._root, -sys.maxsize-1, sys.maxsize)
 
     def _is_valid(self, node: Node, min_bound: int, max_bound: int) -> bool:
         """Recursive helper function."""
