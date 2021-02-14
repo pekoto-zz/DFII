@@ -1,9 +1,9 @@
 import unittest
 
-from data_structures.directed_graph_unweighted import DirectedGraphUnweighted
+from data_structures.directed_graph_weighted import DirectedGraphWeighted
 
 
-class DirectedGraphUnweightedTest(unittest.TestCase):
+class DirectedGraphWeightedTest(unittest.TestCase):
 
     def test_graph(self):
         """Basically we need to test all methods together.
@@ -15,7 +15,7 @@ class DirectedGraphUnweightedTest(unittest.TestCase):
         v     v
         c---->d---->e
         """
-        graph = DirectedGraphUnweighted()
+        graph = DirectedGraphWeighted()
 
         graph.add_vertex("a")
         graph.add_vertex("b")
@@ -23,11 +23,13 @@ class DirectedGraphUnweightedTest(unittest.TestCase):
         graph.add_vertex("d")
         graph.add_vertex("e")
 
-        graph.connect("a", "b")
-        graph.connect("a", "c")
-        graph.connect("b", "d")
-        graph.connect("c", "d")
-        graph.connect("d", "e")
+        graph.connect("a", "b", 1.0)
+        graph.connect("a", "c", 2.0)
+        graph.connect("b", "d", 2.0)
+        graph.connect("c", "d", 4.0)
+        graph.connect("d", "e", 3.0)
+
+        print(graph._vertices)
 
         self.assertTrue(graph.is_connected("a", "b"))
         self.assertTrue(graph.is_connected("a", "c"))
@@ -41,17 +43,41 @@ class DirectedGraphUnweightedTest(unittest.TestCase):
         self.assertFalse(graph.is_connected("b", "e"))
         self.assertFalse(graph.is_connected("c", "e"))
 
+        self.assertAlmostEqual(1.0, graph.weight("a", "b"))
+        self.assertAlmostEqual(2.0, graph.weight("a", "c"))
+        self.assertAlmostEqual(2.0, graph.weight("b", "d"))
+        self.assertAlmostEqual(4.0, graph.weight("c", "d"))
+        self.assertAlmostEqual(3.0, graph.weight("d", "e"))
+
     def test_connect_throws_error_if_vertex_not_found(self):
-        graph = DirectedGraphUnweighted()
+        graph = DirectedGraphWeighted()
 
         with self.assertRaises(KeyError):
-            graph.connect("a", "b")
+            graph.connect("a", "b", 1.0)
 
     def test_is_connected_throws_error_if_vertex_not_found(self):
-        graph = DirectedGraphUnweighted()
+        graph = DirectedGraphWeighted()
 
         with self.assertRaises(KeyError):
             graph.is_connected("a", "b")
+
+    def test_weight_throws_error_if_vertex_not_found(self):
+        graph = DirectedGraphWeighted()
+
+        with self.assertRaises(KeyError):
+            graph.weight("a", "b")
+
+    def test_weight_throws_error_if_vertex_not_connected(self):
+        graph = DirectedGraphWeighted()
+
+        graph.add_vertex("a")
+        graph.add_vertex("b")
+        graph.add_vertex("c")
+
+        graph.connect("a", "b", 1.0)
+
+        with self.assertRaises(Exception):
+            graph.weight("a", "c")
 
 
 if __name__ == '__main__':
