@@ -37,7 +37,7 @@ class ArrayQueue:
         :return: None.
         """
         if self._end == len(self._queue):
-            self._grow(len(self._queue) * 2)
+            self._grow(len(self._queue))
 
         self._queue[self._end] = val  # We can't use append because that will always add to the end.
         self._end += 1
