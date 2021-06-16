@@ -1,3 +1,6 @@
+from typing import Set, List
+
+
 class DirectedGraphUnweighted:
     """A directed graph implementation using adjacency list.
 
@@ -81,3 +84,15 @@ class DirectedGraphUnweighted:
             raise KeyError(f'Vertex not found: {vertex_b}')
 
         return vertex_b in self._vertices[vertex_a]
+
+    def vertices(self) -> List[str]:
+        """Returns the list of vertices in the graph."""
+        return list(self._vertices.keys())
+
+    def neighbours_to(self, vertex: str) -> Set[str]:
+        """Returns the neighbours for a given vertex.
+
+        :param vertex: The vertex whose neighbours we want to find.
+        :return: The neighbours
+        """
+        return self._vertices[vertex]
