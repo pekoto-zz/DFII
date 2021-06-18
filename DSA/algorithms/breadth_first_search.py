@@ -30,7 +30,7 @@ class BFS:
         Initial construction: O(V+E) -- number of vertices + edges
         Space: O(V) -- edge_to and distance_to lists
 
-    Users:
+    Uses:
      - Quickly get distance to any other node
      - Number of leaps in a network
      - Degrees of separation
@@ -99,8 +99,9 @@ class BFS:
             raise Exception("No path exists!")
 
         path = deque()
-        vertex = self._edge_to[destination_vertex]
         path.append(destination_vertex)
+
+        vertex = self._edge_to[destination_vertex]
 
         while vertex != self._starting_vertex:
             path.appendleft(vertex)
