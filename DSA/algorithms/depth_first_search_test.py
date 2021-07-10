@@ -67,8 +67,8 @@ class DepthFirstSearchTest(unittest.TestCase):
 
         self.assertListEqual(["a", "b"], dfs.path_to("b"))
         self.assertListEqual(["a", "c"], dfs.path_to("c"))
-        self.assertTrue(["a", "b", "d"], dfs.path_to("d"))
-        self.assertTrue(["a", "b", "d", "e"], dfs.path_to("e"))
+        self.assertListEqual(["a", "b", "d"], dfs.path_to("d"))
+        self.assertListEqual(["a", "b", "d", "e"], dfs.path_to("e"))
 
 
 if __name__ == '__main__':

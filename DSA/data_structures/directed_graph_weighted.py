@@ -1,3 +1,6 @@
+from typing import List, Dict
+
+
 class DirectedGraphWeighted:
     """A directed graph implementation using adjacency list.
 
@@ -86,3 +89,15 @@ class DirectedGraphWeighted:
             raise Exception(f'{vertex_a} not connected to {vertex_b}')
 
         return self._vertices[vertex_a][vertex_b]
+
+    def vertices(self) -> List[str]:
+        """Returns the list of vertices in the graph."""
+        return list(self._vertices.keys())
+
+    def neighbours_to(self, vertex: str) -> Dict[str, float]:
+        """Returns the neighbours for a given vertex.
+
+        :param vertex: The vertex whose neighbours we want to find.
+        :return: The neighbours
+        """
+        return self._vertices[vertex]

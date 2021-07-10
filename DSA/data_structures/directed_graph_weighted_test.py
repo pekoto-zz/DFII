@@ -79,6 +79,62 @@ class DirectedGraphWeightedTest(unittest.TestCase):
         with self.assertRaises(Exception):
             graph.weight("a", "c")
 
+    def test_vertices(self):
+        """Basically we need to test all methods together.
+
+        The graph should look like this:
+
+        a---->b
+        |     |
+        v     v
+        c---->d---->e
+        """
+        graph = DirectedGraphWeighted()
+
+        graph.add_vertex("a")
+        graph.add_vertex("b")
+        graph.add_vertex("c")
+        graph.add_vertex("d")
+        graph.add_vertex("e")
+
+        graph.connect("a", "b", 1.0)
+        graph.connect("a", "c", 2.0)
+        graph.connect("b", "d", 2.0)
+        graph.connect("c", "d", 4.0)
+        graph.connect("d", "e", 3.0)
+
+        self.assertListEqual(["a", "b", "c", "d", "e"], graph.vertices())
+
+    def test_neighbours_to(self):
+        """Basically we need to test all methods together.
+
+       The graph should look like this:
+
+       a---->b
+       |     |
+       v     v
+       c---->d---->e
+       """
+        graph = DirectedGraphWeighted()
+
+        graph.add_vertex("a")
+        graph.add_vertex("b")
+        graph.add_vertex("c")
+        graph.add_vertex("d")
+        graph.add_vertex("e")
+
+        graph.connect("a", "b", 1.0)
+        graph.connect("a", "c", 2.0)
+        graph.connect("b", "d", 2.0)
+        graph.connect("c", "d", 4.0)
+        graph.connect("d", "e", 3.0)
+
+        self.assertEqual({"b": 1.0, "c": 2.0}, graph.neighbours_to("a"))
+        self.assertEqual({"d": 2.0}, graph.neighbours_to("b"))
+        self.assertEqual({"d": 4.0}, graph.neighbours_to("c"))
+        self.assertEqual({"e": 3.0}, graph.neighbours_to("d"))
+        self.assertEqual({}, graph.neighbours_to("e"))
+
 
 if __name__ == '__main__':
     unittest.main()
