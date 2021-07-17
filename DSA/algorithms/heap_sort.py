@@ -38,7 +38,7 @@ def heap_sort(items: List[Any]) -> None:
     while end_of_heap_index >= 0:
         _swap(items, 0, end_of_heap_index)
         # Heapify the root element to get
-        # the smallest element at the root again
+        # the largest element at the root again.
         _heapify(items, 0, end_of_heap_index)
 
         end_of_heap_index -= 1
