@@ -15,6 +15,8 @@ def quicksort(items: List[Any]) -> None:
 
     Space: log(n) -- recursive calls.
 
+    NOT stable.
+
     :param items: The list of items to sort.
     """
     _quicksort(items, 0, len(items)-1)
