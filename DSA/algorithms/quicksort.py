@@ -5,7 +5,7 @@ def quicksort(items: List[Any]) -> None:
     """A quicksort implementation.
 
     * While left < right
-    * Partition the array.
+    * Partition the array.3
     * Recursively sort the left half.
     * Recursively sort the right half.
 
