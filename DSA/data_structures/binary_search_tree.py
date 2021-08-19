@@ -58,6 +58,10 @@ class BinarySearchTree:
         """Initializes the BST."""
         self._root = None
 
+    @property
+    def root(self) -> Node:
+        return self._root
+
     def put(self, key: Any, val: Any) -> None:
         """Puts a key/value into the key.
 
