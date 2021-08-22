@@ -10,6 +10,7 @@ def count_islands(matrix: List[List[int]]) -> int:
         [0, 0, 1, 0, 0],
         [0, 0, 0, 1, 1],
     ]
+    -- 3 islands
 
     This is essentially depth-first searching a matrix.
 
@@ -64,5 +65,4 @@ def _dfs(matrix: List[List[int]], row: int, col: int) -> None:
 
 def _out_of_range(matrix: List[List[int]], row: int, col: int) -> bool:
     """Check if the row/col is out of range."""
-    # Check if out of range
     return row < 0 or col < 0 or row >= len(matrix) or col >= len(matrix[0])
