@@ -8,13 +8,13 @@ def topological_sort(graph: DirectedGraphUnweighted) -> List[str]:
 
     1. Declare visited and ordering structures.
     2. For every vertex...
-        2.2 If it hasn't been visited, kick off a depth first search
-        2.3 Add the vertex to visited and recursion stack
-        2.4 For each neighbour...
-            3.1 If it's in the recursion stack, there's a loop
-            3.2 If it hasn't been visited, dfs the neighbour
-        2.5 Add the vertex to the ordering
-        2.6 Remove it from the recursion stack.
+        2.1 If it hasn't been visited, kick off a depth first search
+        2.2 Add the vertex to visited and recursion stack
+        2.3 For each neighbour...
+            2.3.1 If it's in the recursion stack, there's a loop
+            2.3.2 If it hasn't been visited, dfs the neighbour
+        2.4 Add the vertex to the ordering
+        2.5 Remove it from the recursion stack.
     3. Return the ordering in reverse.
 
     Time: O(v+e): We traverse every vertex and edge.

@@ -4,7 +4,7 @@ from typing import List
 def binary_search(arr: List[int], key: int) -> int:
     """Returns the index of a given key in a sorted array, or -1 if key not found.
 
-    1. Get left and right.
+    1. Get left and right indices.
     2. Calculate the mid.
     3. Depending on whether the key is bigger or smaller than mid,
        update left of right.

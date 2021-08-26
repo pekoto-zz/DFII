@@ -5,7 +5,7 @@ def quicksort(items: List[Any]) -> None:
     """A quicksort implementation.
 
     * While left < right
-    * Partition the array.3
+    * Partition the array.
     * Recursively sort the left half.
     * Recursively sort the right half.
 
@@ -47,12 +47,12 @@ def _partition(items: List[Any], left: int, right: int) -> int:
 
     Example: [100, 5, -2, 1, 52, 3, 4]
 
-    1. Pick a pivot value.
-    2. Set a pointer to the left -- this is the greatest element.
+    1. Pick a pivot value. (rightmost item)
+    2. Set a pointer (i) to the left -- this is the greatest element.
     3. Iterate until the pivot.
         3.1 If we find an element <= pivot
-        3.2 Swap it with the greater value
-        3.3 Increment greater element pivot
+        3.2 Swap it with the greater value (i)
+        3.3 Increment greater element pivot (i)
     4. Swap the pivot with the greater element pointer
     5. Return the pivot position.
 

@@ -13,8 +13,8 @@ def insertion_sort(items: List[Any]) -> None:
     Space: O(1)
 
     1. Iterate around the array.
-    2. If the element is smaller than the previous element,
-        then swap the elements.
+    2. While the element is smaller than the previous element,
+        swap the elements.
     """
     for i in range(1, len(items)):
         j = i

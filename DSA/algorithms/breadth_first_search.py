@@ -12,13 +12,15 @@ class BFS:
     on the same level first.
 
     1. Declare edge_to, distance_to dicts
-    2. Declare visited set
-    3. While the queue is not empty:
-        3.1 Dequeue the next vertex
-        3.2 For each neighbour...
-        3.3 If the neighbour not visited, update edge_to and distance to, and
+    2. Set distance_two=0 for all elements.
+    3. Put starting vertex in queue.
+    4. Declare visited set
+    5. While the queue is not empty:
+        5.1 Dequeue the next vertex
+        5.2 For each neighbour...
+        5.3 If the neighbour not visited, update edge_to and distance to, and
             add it to the queue.
-        3.4 Repeat for next element in the queue.
+        5.4 Repeat for next element in the queue.
 
     Usages after construction:
     1. Find it two nodes are connected O(1)

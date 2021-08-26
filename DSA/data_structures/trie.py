@@ -9,6 +9,7 @@ class Node:
 
     Each Node contains len(radix) children.
     """
+
     def __init__(self, radix_size: int) -> None:
         self.val = None
         self.children = [None] * radix_size
@@ -40,7 +41,8 @@ class Trie:
             - Spell checker
             - Prefix matching
     """
-    def __init__(self, radix_size: int=_DEFAULT_RADIX_SIZE) -> None:
+
+    def __init__(self, radix_size: int = _DEFAULT_RADIX_SIZE) -> None:
         self._radix_size = radix_size
         self._root = None
 

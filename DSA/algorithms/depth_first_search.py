@@ -13,8 +13,8 @@ class DFS:
     1. Declare edge_to and visited dictionaries
     2. Mark the current vertex as visited
     3. For each of the neighbours...
-    3.1 If the neighbour has been visited, dfs to that neighbour
-    3.2 Set the edge to this neighbour to be this vertex.
+    3.1 If the neighbour has been visited, dfs to that neighbour recursively
+    3.2 Set the edge to this neighbour to be the initial vertex.
 
     Usages after construction:
     * Find if the starting vertex is connected O(1)

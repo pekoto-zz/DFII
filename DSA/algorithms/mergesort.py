@@ -14,7 +14,9 @@ def mergesort(items: List[Any]) -> List[Any]:
         (Sort into temporary files/storage,
          combine sorted files/temporary storage.)
 
-    * Split into two halves recursively (n sublists)
+    * if len <= 1, return
+    * Get mid
+    * Mergesort the two halves recursively (n sublists)
     * Merge the two halves.
 
     :param items: The list of items to sort.
